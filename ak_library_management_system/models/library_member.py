@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-
 from odoo import models, fields
+
 class LibraryMember(models.Model):
     _name = 'library.member'
     _description = "This is the member class for managing the members"

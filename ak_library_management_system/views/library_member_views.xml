@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
     <data>
-<!--        member form view-->
+        <!--member form view-->
         <record model="ir.ui.view" id="view_library_member_form">
             <field name="name">Library Member</field>
             <field name="model">library.member</field>
@@ -18,7 +18,7 @@
                 </form>
             </field>
         </record>
-<!--        member list view-->
+        <!--member list view-->
         <record model="ir.ui.view" id="view_library_member_tree">
             <field name="name">Library Member List</field>
             <field name="model">library.member</field>
@@ -30,18 +30,17 @@
                 </list>
             </field>
         </record>
-<!--        action-->
+        <!--action-->
         <record model="ir.actions.act_window" id="action_library_member">
                 <field name="name">Library Member</field>
                 <field name="res_model">library.member</field>
         </record>
-<!--        member menu-->
+        <!--member menu-->
         <menuitem
             name="Member"
             id="menu_member_library"
             action="action_library_member"
             parent="menu_library"
             sequence='6'/>
-
     </data>
 </odoo>

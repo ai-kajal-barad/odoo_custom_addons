@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
     <data>
-<!--        book tag form view-->
+    <!--book tag form view-->
         <record model="ir.ui.view" id="view_library_book_tag_form">
             <field name="name">Library Book Tag</field>
             <field name="model">library.book.tag</field>
@@ -15,7 +15,7 @@
                 </form>
             </field>
         </record>
-<!--        book tag list view-->
+        <!--book tag list view-->
         <record model="ir.ui.view" id="view_library_book_tag_tree">
             <field name="name">Library Book tag List</field>
             <field name="model">library.book.tag</field>
@@ -25,13 +25,12 @@
                 </list>
             </field>
         </record>
-<!--        action -->
+        <!--action -->
         <record model="ir.actions.act_window" id="action_library_book_tag">
                 <field name="name">Book Tag</field>
                 <field name="res_model">library.book.tag</field>
         </record>
-<!--        config menu-->
-<!--        <menuitem id="menu_configuration" name="Configuration" parent="menu_library" sequence='7'/>-->
+        <!--config menu-->
         <menuitem
             name="Book Tag"
             id="menu_library_book_tag"
