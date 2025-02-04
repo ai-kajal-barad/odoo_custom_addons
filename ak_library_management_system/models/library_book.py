@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-
 from odoo import models, fields
+
 class LibraryBook(models.Model):
     _name = 'library.book'
     _description = "This is the books class for managing the books"
@@ -12,12 +13,12 @@ class LibraryBook(models.Model):
     description=fields.Text(string=' Book Summary')
     state=fields.Selection([('available','Available'),('borrowed','Borrowed')],string='Book Availability',tracking=True,default="available")
     #book_tags_ids = fields.Many2one('library.book.tag', string='Tags')
-    #tags=fields.Many2many(related =category_id.tags_ids.name, string='Tags')
     tags_ids = fields.Many2many('library.book.tag',related='category_id.tags_ids',string='Tags')
 
     # Update the state to the borrowed
     def action_change_state(self):
         self.write({'state': 'borrowed'})
+
     # Update the state to the available
     def action_state_available(self):
         self.write({'state':'available'})
