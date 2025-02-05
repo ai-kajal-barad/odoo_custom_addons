@@ -20,4 +20,3 @@ its Basic Library management system""",
     'application': True,
     'license': 'LGPL-3',
 }
-

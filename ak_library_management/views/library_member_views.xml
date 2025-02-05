@@ -31,7 +31,8 @@
             </field>
         </record>
 	<!--action-->
-        <record model="ir.actions.act_window" id="action_library_member">
+        <record model="ir.actions.act_window"
+                id="action_library_member">
                 <field name="name">Library Member</field>
                 <field name="res_model">library.member</field>
         </record>
@@ -42,7 +43,6 @@
             action="action_library_member"
             parent="menu_library"
             sequence='6'/>
-
     </data>
 </odoo>
 

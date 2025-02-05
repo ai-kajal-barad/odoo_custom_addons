@@ -2,9 +2,9 @@
 from odoo import models, fields
 
 class LibraryMember(models.Model):
-	"""This class contain details of members
-	like name, contact number and membership date. 
-	"""
+    """This class contain details of members
+    like name, contact number and membership date.
+    """
     _name = 'library.member'
     _description = "This is the member class for managing the members"
 
