@@ -1,10 +1,12 @@
 #-*- coding: utf-8 -*-
 from odoo import models, fields
 
+
 class LibraryBook(models.Model):
 	"""This class basically contains Book related informations
 	like name,authors and publication date.
 	"""
+
 	_name = 'library.book'
 	_description = "This is the books class for managing the books"
 

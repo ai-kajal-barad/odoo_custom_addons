@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
     <data>
-	<!--book form view-->
+	    <!--book form view-->
         <record model="ir.ui.view" id="view_library_book_form">
             <field name="name">Library Book</field>
             <field name="model">library.book</field>
@@ -32,7 +32,7 @@
                 </form>
             </field>
         </record>
-	<!--book list view-->
+	    <!--book list view-->
         <record model="ir.ui.view" id="view_library_book_tree">
             <field name="name">Library Book List</field>
             <field name="model">library.book</field>
@@ -45,12 +45,12 @@
                 </list>
             </field>
         </record>
-	<!--action-->
+	    <!--action-->
         <record model="ir.actions.act_window" id="action_library_book">
                 <field name="name">Library Book</field>
                 <field name="res_model">library.book</field>
         </record>
-	<!--main menu and submenu-->
+	    <!--main menu and submenu-->
         <menuitem id="menu_library" name="Library Management" sequence='3'/>
         <menuitem
             name="Books"
@@ -60,4 +60,3 @@
             sequence='5'/>
     </data>
 </odoo>
-
