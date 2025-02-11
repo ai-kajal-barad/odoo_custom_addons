@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 
 {
-    'name': 'Library Management Inheritance',
+    'name': 'Library Management',
     'version': '18.0.1.0.0',
     'summary': 'library management system',
     #'sequence': 10,
