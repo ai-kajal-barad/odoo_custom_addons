@@ -5,22 +5,13 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
-            <!--xpath for state-->
-            <xpath expr="//header" position="inside">
-                <header>
-                    <button name="action_state_available" string="Available" type="object" class="oe_highlight" invisible="state not in('borrowed','reserved')"/>
-                    <button name="action_state_borrowed" string="Borrowed" type="object" class="oe_highlight" invisible="state not in('available','reserved')"/>
-                    <button name="action_state_reserved" string="Reserved" type="object" class="oe_highlight" invisible="state not in('available','borrowed')"/>
-                </header>
-                <field name="state" widget="statusbar" statusbar_visible="available, borrowed, reserved" />
-            </xpath>
             <!--xpath for book(product) tab-->
             <xpath expr="//page[@name='inventory']" position="after">
                 <page name="book" string="Books">
                     <group>
                         <group>
-                            <field name="is_library_book" required="True"/>
-                            <field name="author" required="True"/>
+                            <field name="is_bulk_book"/>
+                            <field name="author"/>
                             <field name="publisher"/>
                             <field name="edition"/>
                         </group>
@@ -39,13 +30,12 @@
             </xpath>
         </field>
     </record>
-    <!--main menu and product.template menu -->
+    <!--main menu and sub menu-->
     <menuitem id="menu_library" name="Library Management" sequence='3'/>
     <menuitem
-            name="Books"
-            id="menu_products"
-            action="sale.product_template_action"
-            parent="ak_library_management_buttons.menu_library"
-            sequence='5'/>
+        name="Books"
+        id="menu_products"
+        action="sale.product_template_action"
+        parent="menu_library"
+        sequence='5'/>
 </odoo>
-
