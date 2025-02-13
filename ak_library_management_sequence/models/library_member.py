@@ -8,8 +8,17 @@ class LibraryMember(models.Model):
     _description = "This is the member class for managing the members"
 
     name=fields.Char(string='Member Name')
+    membership_no=fields.Char(string='Membership Number')
     email=fields.Char(string='Email ID')
     phone=fields.Char(string='Contact Number')
     membership_date=fields.Date(string='Membership Start Date')
     library_ids=fields.One2many(comodel_name='library.library', inverse_name='member_id')
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        """create sequence for membership"""
+        for vals in vals_list:
+            if not vals.get('membership_no') or vals['membership_no'] == _('New'):
+                vals['membership_no'] = (self.env['ir.sequence'].next_by_code
+                                         ('library.member') or _('New'))
+        return super().create(vals_list)

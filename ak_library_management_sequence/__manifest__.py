@@ -12,6 +12,7 @@ Its Basic Library management system""",
     'website': 'https://www.aktivsoftware.com',
     'depends': ['web','product','sale_management','contacts'],
     'data': [
+        'data/ir_sequence.xml',
         'security/ir.model.access.csv',
         'views/product_template_only_form_view.xml',
         'views/library_library_views.xml',
