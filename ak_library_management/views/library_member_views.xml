@@ -8,6 +8,9 @@
             <field name="arch" type="xml">
                 <form string="Member">
                     <sheet>
+                        <h1>
+                            <field name="membership_no"/>
+                        </h1>
                         <group>
                             <field name="name"/>
                             <field name="email"/>

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!--bulk book form view-->
+        <record model="ir.ui.view" id="view_bulk_book_form">
+            <field name="name">Bulk Book</field>
+            <field name="model">bulk.book</field>
+            <field name="arch" type="xml">
+                <form string="Books">
+                    <div name="button_box" >
+                        <!--smart button for book count-->
+                        <button name="action_view_bulk_book" string="Bulk Book" type="object"
+                                class="oe_stat_button" icon="fa-book" invisible="count_product == 0">
+                             <field name ="count_product" widget="stateinfo"/>
+                        </button>
+                    </div>
+                    <header>
+                        <!--buttons for create record and delete record-->
+                        <button name="create_books" string="Create Books" type="object" class="oe_highlight"/>
+                        <button name="revert_changes" string="Revert Changes" type="object"
+                                class="oe_highlight" invisible="count_product == 0"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="book_name" required="True"/>
+                            <field name="partner_id" required="True"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- bulk book list view-->
+        <record model="ir.ui.view" id="view_bulk_book_tree">
+            <field name="name">Bulk Book List</field>
+            <field name="model">bulk.book</field>
+            <field name="arch" type="xml">
+                <list string="Books">
+                    <field name="book_name"/>
+                    <field name="partner_id"/>
+                </list>
+            </field>
+        </record>
+        <!--action-->
+        <record model="ir.actions.act_window" id="action_bulk_book">
+                <field name="name">Bulk Book</field>
+                <field name="res_model">bulk.book</field>
+        </record>
+        <!-- bulk book menu-->
+        <menuitem
+            name="Bulk Books"
+            id="menu_book_bulk"
+            action="action_bulk_book"
+            parent="menu_library"
+            sequence='11'/>
+    </data>
+</odoo>
