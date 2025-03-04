@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_library_library,access_library_library,model_library_library,,1,1,1,1
+access_bulk_book,access_bulk_book,model_bulk_book,,1,1,1,1
+access_borrow_transaction_history,access_borrow_transaction_history,model_borrow_transaction_history,,1,1,1,1

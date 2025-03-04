@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="base_view_partner_form" model="ir.ui.view" >
+        <field name="name">base.view.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!--xpath for book(product) tab-->
+            <xpath expr="//field[@name='vat']" position="after">
+                <group>
+                    <field name="not_trust_worthy"/>
+                    <field name="is_member"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <menuitem
+            name="Customer"
+            id="menu_customer"
+            action="contacts.action_contacts"
+            parent="menu_library"
+            sequence='7'/>
+</odoo>
