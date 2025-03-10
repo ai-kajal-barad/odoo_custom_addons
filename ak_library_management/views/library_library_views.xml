@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!--library form view-->
+        <record model="ir.ui.view" id="view_library_form">
+            <field name="name">Library </field>
+            <field name="model">library.library</field>
+            <field name="arch" type="xml">
+                <form string="Library">
+                    <sheet>
+                        <group>
+                            <field name="name" required="True"/>
+                            <field name="location"/>
+                            <field name="librarian_id"/>
+                            <field name="capacity"/>
+                            <field name="notes"/>
+                        </group>
+                        <!--create notebook for product_ids-->
+                        <notebook>
+                            <!--page for product_ids-->
+                            <page string="Books" name="product">
+                                <field name="product_ids">
+                                    <list string="Books" create="false" edit="false" editable="bottom">
+                                        <field name="name"/>
+                                        <field name="author"/>
+                                        <field name="publisher"/>
+                                        <field name="edition"/>
+                                        <field name="list_price"/>
+                                        <field name="standard_price"/>
+                                        <field name="barcode"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+        <!--library list view-->
+        <record model="ir.ui.view" id="view_library_tree">
+            <field name="name">Library List</field>
+            <field name="model">library.library</field>
+            <field name="arch" type="xml">
+                <list string="Library">
+                    <field name="name"/>
+                    <field name="location"/>
+                    <field name="capacity"/>
+                    <field name="notes"/>
+                </list>
+            </field>
+        </record>
+        <!--action-->
+        <record model="ir.actions.act_window"
+                id="action_library_library">
+                <field name="name">Library</field>
+                <field name="res_model">library.library</field>
+        </record>
+        <!--main menu-->
+        <menuitem id="menu_library"
+                  name="Library Management"
+                  sequence='3'/>
+        <!--library menu-->
+        <menuitem
+            name="Library"
+            id="menu_library_library"
+            action="action_library_library"
+            parent="menu_library"
+            sequence='4'/>
+    </data>
+</odoo>
