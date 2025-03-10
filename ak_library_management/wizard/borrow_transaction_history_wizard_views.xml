@@ -1,0 +1,18 @@
+<odoo>
+        <!--custom wizard for validation error-->
+        <record id="view_borrow_transaction_history_wizard" model="ir.ui.view">
+            <field name="name">borrow.transaction.history.wizard.form</field>
+            <field name="model">borrow.transaction.history.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Validation Wizard">
+                    <group>
+                        <field name="message" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button string="Continue" special="save" class="oe_highlight"/>
+                        <button string="Cancel" type="object" name="action_cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+</odoo>

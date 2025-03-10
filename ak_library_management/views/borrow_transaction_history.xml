@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!--borrow book transaction search view-->
+        <record id="borrow_transaction_history_view_search" model="ir.ui.view">
+                <field name="name">borrow.transaction.history.search.view</field>
+                <field name="model">borrow.transaction.history</field>
+                <field name="arch" type="xml">
+                    <search>
+                        <field name="customer_id"/>
+                        <group>
+                            <filter name="return_date_group_by"
+                                    context="{'group_by':'borrow_end_date'}"
+                                    domain="[]"
+                                    string="Due Date"/>
+                        </group>
+                    </search>
+                </field>
+        </record>
+        <!--borrow transaction history form view-->
+        <record model="ir.ui.view" id="view_borrow_transaction_history_form">
+            <field name="name">Borrow Transaction History</field>
+            <field name="model">borrow.transaction.history</field>
+            <field name="arch" type="xml">
+                <form string="Transaction History">
+                    <sheet>
+                        <group>
+                            <field name="customer_id" required="True"/>
+                            <field name="book_ids" widget="many2many_tags" required="True"/>
+                            <field name="borrow_start_date"/>
+                            <field name="borrow_end_date"/>
+                            <field name="deposit_amount" invisible="is_member != False"/>
+                            <field name="is_member" invisible="1" />
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="action_confirm" type="object" string="Confirm" class="btn-primary"/>
+                        <button special="cancel" string="Cancel"/>
+<!--                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="x"/>-->
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <!-- borrow transaction history list view-->
+        <record model="ir.ui.view" id="view_borrow_transaction_history_list">
+            <field name="name">Bulk Book List</field>
+            <field name="model">borrow.transaction.history</field>
+            <field name="arch" type="xml">
+                <list string="Transaction History">
+                    <field name="customer_id"/>
+                    <field name="book_ids"/>
+                    <field name="borrow_start_date"/>
+                    <field name="borrow_end_date"/>
+                    <field name="deposit_amount" />
+                </list>
+            </field>
+        </record>
+        <!--action-->
+        <record model="ir.actions.act_window" id="action_borrow_transaction_history">
+            <field name="name">Transaction History</field>
+            <field name="res_model">borrow.transaction.history</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="view_borrow_transaction_history_list"/>
+        </record>
+        <!-- borrow transaction history menu-->
+        <menuitem
+            name="Borrow Transaction"
+            id="menu_transaction_history"
+            action="action_borrow_transaction_history"
+            parent="menu_library"
+            sequence='8'/>
+    </data>
+</odoo>
+

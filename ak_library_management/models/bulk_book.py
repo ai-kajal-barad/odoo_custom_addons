@@ -15,8 +15,9 @@ class BulkBook(models.TransientModel):
     product_ids = fields.Many2many(comodel_name='product.template')
     count_product = fields.Integer(string='Count Book', compute='_compute_book_count')
 
-    def action_create_books(self):
-        """This method creates new record for product.template"""
+    def create_books(self):
+        """This method creates new record for
+        product.template"""
         if self.book_name:
             book_list = [book.strip() for book in self.book_name.split(',') if book.strip()]
             product_model = self.env['product.template']
@@ -30,8 +31,9 @@ class BulkBook(models.TransientModel):
             if created_products:
                 self.product_ids = created_products
 
-    def action_revert_changes(self):
-        """This method use to delete existing records from product.template"""
+    def revert_changes(self):
+        """This method use to delete existing records
+        from product.template"""
         if self.product_ids:
             product_un = self.env['product.template'].search([('id', 'in', self.product_ids.ids)])
             if product_un:
@@ -44,10 +46,8 @@ class BulkBook(models.TransientModel):
             rec.count_product = self.env['product.template'].search_count([('is_bulk_book', '=', True)])
 
     def action_view_bulk_book(self):
-        """
-        method for smart button  that display single record in
-         form view and multiple in list-form
-        """
+        """method for smart button  that display
+        single record  in form view and multiple in list-form"""
         if self.product_ids:
             if len(self.product_ids) == 1:
                 return {

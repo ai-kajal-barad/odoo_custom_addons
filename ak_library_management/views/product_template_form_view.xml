@@ -5,6 +5,10 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_open_label_layout']" position='after'>
+                <button name="compute_display_name"  string="Continue" type="object"/>
+                <button name="action_borrow_books" string="Borrow Books" type="object"/>
+            </xpath>
             <!--xpath for book(product) tab-->
             <xpath expr="//page[@name='inventory']" position="after">
                 <page name="book" string="Books">
@@ -23,10 +27,6 @@
                         </group>
                     </group>
                 </page>
-            </xpath>
-            <!--invisible field barcode in product.template-->
-            <xpath expr="//field[@name='barcode']" position='attributes'>
-                <attribute name="invisible">1</attribute>
             </xpath>
         </field>
     </record>
