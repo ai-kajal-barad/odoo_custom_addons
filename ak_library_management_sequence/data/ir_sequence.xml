@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_product_template" model="ir.sequence">
+        <field name="name">Product</field>
+        <field name="code">product.template</field>
+        <field name="prefix">BOOK-%(year)s-</field>
+        <field name="padding">4</field>
+    </record>
+    <record id="seq_library_member" model="ir.sequence">
+        <field name="name">Member</field>
+        <field name="code">library.member</field>
+        <field name="prefix">MEM-%(year)s-%(month)s-</field>
+        <field name="padding">4</field>
+    </record>
+</odoo>
